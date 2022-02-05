@@ -1,10 +1,16 @@
 import { GlobalStyle } from './styles/global';
 
+import * as Organisms from './components/Organisms';
+
 export function App() {
   return (
     <div className="App">
       <GlobalStyle />
-      <h1>Gran Cursos Challenge</h1>
+      <div style={{ display: 'flex' }}>
+        <Organisms.MenuOptions />
+        <Organisms.SelectedPage />
+      </div>
+
     </div>
   );
 }
