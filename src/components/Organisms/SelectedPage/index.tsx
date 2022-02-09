@@ -9,9 +9,16 @@ import { Container } from './styles';
 const SelectedPage: React.FC = () => {
   return (
     <Container>
-      <Molecules.UserMenu />
-      <Molecules.Breadcumb />
-      <p>Teste</p>
+      <header>
+        <Molecules.UserMenu />
+        <Molecules.Breadcumb />
+      </header>
+      <main>
+        Main
+      </main>
+      <footer>
+        Footer
+      </footer>
     </Container>
   );
 };

@@ -1,2 +1,9 @@
 export { default as Logo } from './Logo';
 export { default as Text } from './Text';
+export { default as Avatar } from './Avatar';
+export { default as RadioInput } from './RadioInput';
+export { default as InputField } from './InputField';
+export { default as Rating } from './Rating';
+export { default as Checkbox } from './Checkbox';
+export { default as DropDown } from './Dropdown';
+export { default as Slider } from './Slider';

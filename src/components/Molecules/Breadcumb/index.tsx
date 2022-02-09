@@ -14,9 +14,9 @@ const Breadcumb: React.FC = () => {
         <Line />
         <FiHome style={{ marginRight: '5px' }} />
         <FiChevronsRight style={{ marginRight: '5px' }} />
-        eCommerce
+        <span>eCommerce</span>
         <FiChevronsRight style={{ marginRight: '5px', marginLeft: '5px' }} />
-        Electronics
+        <span>Electronics</span>
       </div>
       <SettingsDiv>
         <FiSettings color="#fff" />

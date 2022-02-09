@@ -14,21 +14,49 @@ import {
   FiCopy,
   FiSidebar,
   FiFileText,
-  FiCheckCircle
+  FiCheckCircle,
+  FiX
 } from 'react-icons/fi';
+import { useMediaQuery } from 'react-responsive';
 
 import * as Atoms from '../../Atoms';
 import * as Molecules from '../../Molecules';
 
-import { Container } from './styles';
+import { usePageContext } from '../../../hooks/selectedPageContext';
+
+import { Container, CloseDiv } from './styles';
+
+interface MenuOptionsProps {
+  onClickClose?: () => void;
+}
 
 
-const MenuOptions: React.FC = () => {
+const MenuOptions: React.FC<MenuOptionsProps> = ({ onClickClose }) => {
+  const { handleChangePage, selectedPage } = usePageContext();
+  const isMobile = useMediaQuery({ query: '(max-width: 415px)' })
+
+  function handleSelectedOption(e: 'Dashboard' | 'Other') {
+    handleChangePage(e);
+  }
+
   return (
     <Container>
       <Atoms.Logo />
-      <Molecules.OptionComponent icon={<FiHome />} text="Dashboard" selected isDropable />
-      <Molecules.OptionComponent icon={<FiCircle />} text="eCommerce" />
+      {
+        isMobile && (
+          <CloseDiv>
+            <FiX onClick={onClickClose} />
+          </CloseDiv>
+        )
+      }
+      <Molecules.OptionComponent
+        icon={<FiHome />}
+        text="Dashboard"
+        selected={selectedPage === 'Dashboard'}
+        isDropable
+        onClick={() => handleSelectedOption('Dashboard')}
+      />
+      <Molecules.OptionComponent icon={<FiCircle />} text="eCommerce" selected={selectedPage === 'Other'} onClick={() => handleSelectedOption('Other')} />
 
       <Atoms.Text text="APPS" isAtMenuOptions />
       <Molecules.OptionComponent icon={<FiMail />} text="Email" />

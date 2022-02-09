@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import Theme from '../../../styles/Theme';
 
 export const Container = styled.div`
   width: 100%;
@@ -17,6 +18,23 @@ export const Container = styled.div`
     font-size: 24px;
     font-weight: 400;
   }
+
+  @media (max-width: ${Theme.breakPoints.mobile}) {
+    margin-top: 35px;
+    margin-bottom: 18px;
+    div {
+      svg {
+        width: 12px;
+      }
+      span {
+        font-size: 12px;
+      }
+    }
+    h3 {
+      font-size: 12px;
+      font-weight: 400;
+    }
+  }
 `;
 
 export const Line = styled.div`
@@ -24,13 +42,17 @@ export const Line = styled.div`
   height: 32px;
   background: #979797;
   margin: 0px 15px;
+
+  @media (max-width: ${Theme.breakPoints.mobile}) {
+    margin: 0px 5px;
+  }  
 `;
 
 export const SettingsDiv = styled.div`
   width: 30px;
   height: 30px;
   border-radius: 50%;
-  background: #717171;
+  background: var(--red-500);
   display: flex;
   align-items: center;
   justify-content: center;

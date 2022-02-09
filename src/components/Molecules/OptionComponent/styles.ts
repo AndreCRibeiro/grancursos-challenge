@@ -4,16 +4,21 @@ interface ContainerProps {
   isSelected?: boolean;
 }
 
+interface TextProps {
+  isSelected?: boolean;
+}
+
 export const Container = styled.div<ContainerProps>`
   width: 100%;
   height: 36px;
-  background: ${props => props.isSelected ? '#ECECEC' : ''};
+  background: ${props => props.isSelected ? `var(--red-500)` : ''};
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 9px 13px;
   border-radius: 4px;
   cursor: pointer;
+  color: ${props => props.isSelected ? '#fff' : ''};
 
   div {
     display: flex;
@@ -32,8 +37,8 @@ export const Container = styled.div<ContainerProps>`
   }
 `;
 
-export const Text = styled.p`
+export const Text = styled.p<TextProps>`
   font-size: 15px;
   font-weight: 400;
-  color: #2C2C2C;
+  color: ${props => props.isSelected ? '#fff' : '#2C2C2C'};
 `;
